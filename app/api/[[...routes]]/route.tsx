@@ -36,29 +36,15 @@ app.frame('/', (c) => {
     image: (
       <div
         style={{
-          alignItems: 'center',
-          background:
-            status === 'response'
-              ? 'linear-gradient(to right, #432889, #17101F)'
-              : 'black',
-          backgroundSize: '100% 100%',
           display: 'flex',
-          flexDirection: 'column',
-          flexWrap: 'nowrap',
-          height: '100%',
-          justifyContent: 'center',
-          textAlign: 'center',
           width: '100%',
+          height: '100%',
+          backgroundColor: 'white',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
-        <div
-          style={{
-            color: 'white',
-            fontSize: 60,
-          }}
-        >
-          {`Welcome to ${channel.name}!`}
-        </div>
+        <Image src='/tabletop-wordmark-color.png' />
       </div>
     ),
     intents: [

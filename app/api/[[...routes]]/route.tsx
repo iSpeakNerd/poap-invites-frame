@@ -5,6 +5,12 @@ import { devtools } from 'frog/dev';
 import { neynar } from 'frog/hubs';
 import { handle } from 'frog/next';
 import { serveStatic } from 'frog/serve-static';
+import { UI } from './ui';
+import dotenv from 'dotenv';
+
+dotenv.config({ path: '.env.local' });
+
+const { Image, VStack } = UI;
 
 const app = new Frog({
   assetsPath: '/',
@@ -17,11 +23,10 @@ const app = new Frog({
 // Uncomment to use Edge Runtime
 // export const runtime = 'edge'
 
-const inviteFidsArray = [1, 9391, 123456789, 12949]; // from get-fids.ts output
+const inviteFidsArray = [8004, 5516, 13877, 18091, 2480, 6217, 8998, 16877]; // from get-fids.ts output
 const channel = {
-  name: 'testinprod',
-  inviteLink:
-    'https://warpcast.com/~/channel/testinprod/join?inviteCode=rFhCHLanxnPBE5Vky9v2xg',
+  name: 'tabletop',
+  inviteLink: process.env.WC_INVITE_LINK!,
 };
 
 //entrypoint
@@ -78,6 +83,25 @@ app.frame('/', (c) => {
   });
 });
 
+app.frame('/new', (c) => {
+  return c.res({
+    image: (
+      <div
+        style={{
+          display: 'flex',
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'white',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Image src='/tabletop-wordmark-color.png' />
+      </div>
+    ),
+  });
+});
+
 app.frame('/check', (c) => {
   const { fid } = c.frameData || {};
   console.log(fid);
@@ -120,12 +144,12 @@ app.frame('/check', (c) => {
       >
         invite
       </Button>,
-      <Button
-        value='not-invited'
-        action='/'
-      >
-        not invited
-      </Button>,
+      // <Button
+      //   value='not-invited'
+      //   action='/'
+      // >
+      //   not invited
+      // </Button>,
     ],
   });
 });
@@ -156,17 +180,18 @@ app.frame('/invite', (c) => {
       image: (
         <div
           style={{
-            color: 'white',
-            fontSize: 60,
+            display: 'flex',
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'white',
             alignItems: 'center',
             justifyContent: 'center',
-            display: 'flex',
           }}
         >
-          You are invited 🥳 to {channel.name}
+          <Image src='/tabletop-wordmark-color.png' />
         </div>
       ),
-      intents: [<Button.Link href={channel.inviteLink}>LET ME IN</Button.Link>],
+      intents: [<Button.Link href={channel.inviteLink}>JOIN NOW</Button.Link>],
     });
   }
   return c.res({
@@ -179,9 +204,14 @@ app.frame('/invite', (c) => {
           alignItems: 'center',
         }}
       >
-        default response
+        Not yet a member?
       </div>
     ),
+    intents: [
+      <Button.Link href='https://warpcast.com/ispeaknerd.eth/0xa691b67b'>
+        Ways to join
+      </Button.Link>,
+    ],
   });
 });
 

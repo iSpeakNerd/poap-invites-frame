@@ -25,14 +25,13 @@ const app = new Frog({
 
 const inviteFidsArray = [8004, 5516, 13877, 18091, 2480, 6217, 8998, 16877]; // from get-fids.ts output
 const channel = {
-  name: 'tabletop',
+  name: 'TableTop',
   inviteLink: process.env.WC_INVITE_LINK!,
 };
 
 //entrypoint
 app.frame('/', (c) => {
   const { buttonValue, inputText, status } = c;
-  const fruit = inputText || buttonValue;
   return c.res({
     image: (
       <div
@@ -56,17 +55,9 @@ app.frame('/', (c) => {
           style={{
             color: 'white',
             fontSize: 60,
-            fontStyle: 'normal',
-            letterSpacing: '-0.025em',
-            lineHeight: 1.4,
-            marginTop: 30,
-            padding: '0 120px',
-            whiteSpace: 'pre-wrap',
           }}
         >
-          {status === 'response'
-            ? `Nice choice.${fruit ? ` ${fruit.toUpperCase()}!!` : ''}`
-            : 'Welcome!'}
+          {`Welcome to ${channel.name}!`}
         </div>
       </div>
     ),
@@ -74,7 +65,7 @@ app.frame('/', (c) => {
       // <TextInput placeholder='Enter custom fruit...' />,
       <Button
         value='fid'
-        action='/check'
+        action='/invite'
       >
         start
       </Button>,
@@ -83,76 +74,24 @@ app.frame('/', (c) => {
   });
 });
 
-app.frame('/new', (c) => {
-  return c.res({
-    image: (
-      <div
-        style={{
-          display: 'flex',
-          width: '100%',
-          height: '100%',
-          backgroundColor: 'white',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <Image src='/tabletop-wordmark-color.png' />
-      </div>
-    ),
-  });
-});
-
-app.frame('/check', (c) => {
-  const { fid } = c.frameData || {};
-  console.log(fid);
-  if (!fid) {
-    return c.res({
-      image: (
-        <div
-          style={{
-            display: 'flex',
-            color: 'white',
-            fontSize: 60,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          No FID found
-        </div>
-      ),
-    });
-  }
-  console.log(fid);
-  return c.res({
-    image: (
-      <div
-        style={{
-          color: 'white',
-          fontSize: 60,
-          justifyContent: 'center',
-          alignItems: 'center',
-          display: 'flex',
-        }}
-      >
-        default fallback
-      </div>
-    ),
-    intents: [
-      <Button
-        value='invite'
-        action='/invite'
-      >
-        invite
-      </Button>,
-      // <Button
-      //   value='not-invited'
-      //   action='/'
-      // >
-      //   not invited
-      // </Button>,
-    ],
-  });
-});
+// app.frame('/new', (c) => {
+//   return c.res({
+//     image: (
+//       <div
+//         style={{
+//           display: 'flex',
+//           width: '100%',
+//           height: '100%',
+//           backgroundColor: 'white',
+//           alignItems: 'center',
+//           justifyContent: 'center',
+//         }}
+//       >
+//         <Image src='/tabletop-wordmark-color.png' />
+//       </div>
+//     ),
+//   });
+// });
 
 app.frame('/invite', (c) => {
   const { fid } = c.frameData || {};
@@ -199,12 +138,14 @@ app.frame('/invite', (c) => {
       <div
         style={{
           color: 'white',
+          height: '100%',
           fontSize: 60,
           justifyContent: 'center',
           alignItems: 'center',
+          display: 'flex',
         }}
       >
-        Not yet a member?
+        Not yet a {channel.name} member?
       </div>
     ),
     intents: [

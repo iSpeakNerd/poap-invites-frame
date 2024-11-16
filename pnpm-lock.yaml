@@ -45,6 +45,9 @@ importers:
       typescript:
         specifier: ^5
         version: 5.6.3
+      validator:
+        specifier: ^13.12.0
+        version: 13.12.0
       vercel:
         specifier: ^32.4.1
         version: 32.7.2
@@ -2083,6 +2086,10 @@ packages:
 
   valibot@0.31.1:
     resolution: {integrity: sha512-2YYIhPrnVSz/gfT2/iXVTrSj92HwchCt9Cga/6hX4B26iCz9zkIsGTS0HjDYTZfTi1Un0X6aRvhBi1cfqs/i0Q==}
+
+  validator@13.12.0:
+    resolution: {integrity: sha512-c1Q0mCiPlgdTVVVIJIrBuxNicYE+t/7oKeI9MWLj3fh/uq2Pxh/3eeWbVZ4OcGW1TUf53At0njHw5SMdA3tmMg==}
+    engines: {node: '>= 0.10'}
 
   vercel@32.7.2:
     resolution: {integrity: sha512-esyeo67OZ/f7usKFCrx6NSjsvpo/BP/C8Mfron2uiCb4vXVcjkwOM7TwliHx6b0DbXjpzomdGVUHKRs34VNn2Q==}
@@ -4209,6 +4216,8 @@ snapshots:
   v8-compile-cache-lib@3.0.1: {}
 
   valibot@0.31.1: {}
+
+  validator@13.12.0: {}
 
   vercel@32.7.2:
     dependencies:

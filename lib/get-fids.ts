@@ -1,6 +1,7 @@
 import { BulkUserAddressTypes } from '@neynar/nodejs-sdk';
-import neynar from '@/lib/neynar';
+import neynar from './lib/neynar.ts';
 import fs from 'fs';
+import warpcastUrlBuilder from './lib/warpcast-urls.ts';
 
 //from POAP csv download
 const wallets = [
@@ -21,7 +22,7 @@ const wallets = [
   '0xe04885c3f1419c6e8495c33bdcf5f8387cd88846',
   '0x1391179fe009f6a07f047603dcb3e88bfdb2e16f',
 ];
-const usersArray: { address: string; fid: number }[] = [];
+const usersArray: { address: string; username: string; fid: number }[] = [];
 const fids: number[] = [];
 
 export async function getFids(): Promise<number[]> {
@@ -33,14 +34,28 @@ export async function getFids(): Promise<number[]> {
   Object.entries(users).forEach(([address, userDataArray]) => {
     usersArray.push({
       address: address,
+      username: userDataArray[0].username,
       fid: userDataArray[0].fid,
     });
   });
 
-  //   console.log(usersArray); // [{address: '0xefef50ebacd8da3c13932ac204361b704eb8292c', fid: 6217}]
-  usersArray.map((user) => {
-    fids.push(user.fid);
+  // console.log(usersArray); // [{address: '0xefef50ebacd8da3c13932ac204361b704eb8292c', username: hellno, fid: 6217}]
+  return await processForFids(usersArray);
+}
+getFids();
+
+async function processForFids(array: typeof usersArray): Promise<number[]> {
+  const mentions = array.map((user) => `@${user.username}`).join(' ');
+  console.log(mentions);
+
+  const url = warpcastUrlBuilder.composerUrl({
+    text: `Welcome new frens! If you played a game and got a /poap from me at /devcon you get an invite to /tabletop! Click Start to get your channel invite! ${mentions}`,
+    embeds: [''],
+    channelKey: 'tabletop',
   });
+  console.log('composer url', url);
+
+  const fids = array.map((user) => user.fid);
   fs.writeFileSync('fids.json', JSON.stringify(fids));
   return fids;
 }

@@ -1,10 +1,6 @@
-import { BulkUserAddressTypes, NeynarAPIClient } from '@neynar/nodejs-sdk';
-import dotenv from 'dotenv';
+import { BulkUserAddressTypes } from '@neynar/nodejs-sdk';
+import neynar from '@/lib/neynar';
 import fs from 'fs';
-
-dotenv.config();
-
-const neynar = new NeynarAPIClient(process.env.NEYNAR_API_KEY!);
 
 //from POAP csv download
 const wallets = [
@@ -28,11 +24,10 @@ const wallets = [
 const usersArray: { address: string; fid: number }[] = [];
 const fids: number[] = [];
 
-async function getFids(): Promise<number[]> {
+export async function getFids(): Promise<number[]> {
   const users = await neynar.fetchBulkUsersByEthereumAddress(wallets, {
     addressTypes: [BulkUserAddressTypes.VERIFIED_ADDRESS],
   });
-  //   console.log(users);
 
   //process users
   Object.entries(users).forEach(([address, userDataArray]) => {
@@ -46,7 +41,6 @@ async function getFids(): Promise<number[]> {
   usersArray.map((user) => {
     fids.push(user.fid);
   });
-  console.log(fids);
   fs.writeFileSync('fids.json', JSON.stringify(fids));
   return fids;
 }

@@ -50,7 +50,7 @@ async function processForFids(array: typeof usersArray): Promise<number[]> {
 
   const url = warpcastUrlBuilder.composerUrl({
     text: `Welcome new frens! If you played a game and got a /poap from me at /devcon you get an invite to /tabletop! Click Start to get your channel invite! ${mentions}`,
-    embeds: [''],
+    embeds: ['https://poap-invites-frame.vercel.app/api'],
     channelKey: 'tabletop',
   });
   console.log('composer url', url);

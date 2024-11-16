@@ -17,7 +17,7 @@ const app = new Frog({
 // Uncomment to use Edge Runtime
 // export const runtime = 'edge'
 
-const inviteFidsArray = [1, 9391, 123456789, 987654321]; // from get-fids.ts output
+const inviteFidsArray = [1, 9391, 123456789, 12949]; // from get-fids.ts output
 const channel = {
   name: 'testinprod',
   inviteLink:

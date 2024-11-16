@@ -67,7 +67,7 @@ app.frame('/', (c) => {
         value='fid'
         action='/invite'
       >
-        start
+        Start
       </Button>,
       status === 'response' && <Button.Reset>Reset</Button.Reset>,
     ],

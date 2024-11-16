@@ -6,6 +6,7 @@ dotenv.config();
 
 const neynar = new NeynarAPIClient(process.env.NEYNAR_API_KEY!);
 
+//from POAP csv download
 const wallets = [
   '0xefef50ebacd8da3c13932ac204361b704eb8292c',
   '0x1b5f4b3cbff53245ae516b5475be336622dd5dc4',
@@ -24,14 +25,14 @@ const wallets = [
   '0xe04885c3f1419c6e8495c33bdcf5f8387cd88846',
   '0x1391179fe009f6a07f047603dcb3e88bfdb2e16f',
 ];
-const usersArray: { address: string, fid: number }[] = [];
+const usersArray: { address: string; fid: number }[] = [];
 const fids: number[] = [];
 
-async function getFids():Promise<number[]> {
+async function getFids(): Promise<number[]> {
   const users = await neynar.fetchBulkUsersByEthereumAddress(wallets, {
     addressTypes: [BulkUserAddressTypes.VERIFIED_ADDRESS],
   });
-//   console.log(users);
+  //   console.log(users);
 
   //process users
   Object.entries(users).forEach(([address, userDataArray]) => {
@@ -41,20 +42,24 @@ async function getFids():Promise<number[]> {
     });
   });
 
-//   console.log(usersArray); // [{address: '0xefef50ebacd8da3c13932ac204361b704eb8292c', fid: 6217}]
+  //   console.log(usersArray); // [{address: '0xefef50ebacd8da3c13932ac204361b704eb8292c', fid: 6217}]
   usersArray.map((user) => {
     fids.push(user.fid);
   });
   console.log(fids);
   fs.writeFileSync('fids.json', JSON.stringify(fids));
   return fids;
-};
+}
 
 async function createInvite() {
-    // const fids = await getFids();
-    const signer = process.env.FC_SIGNER_UUID!;
-    const invite = await neynar.inviteChannelMember(signer, 'testinprod', 496573, 'member')
-    // .then(response => console.log(response.data.message))
-    // .catch((error:any) => console.log(error)); // invite @tabletop to testinprod
-    
+  // const fids = await getFids();
+  const signer = process.env.FC_SIGNER_UUID!;
+  const invite = await neynar.inviteChannelMember(
+    signer,
+    'testinprod',
+    496573,
+    'member'
+  );
+  // .then(response => console.log(response.data.message))
+  // .catch((error:any) => console.log(error)); // invite @tabletop to testinprod
 }

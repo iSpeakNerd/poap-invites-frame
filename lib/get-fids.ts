@@ -13,7 +13,7 @@ const usersArray: { address: string; username: string; fid: number }[] = [];
 const fids: number[] = [];
 
 /**
- * Get Farcaster FIDs from POAP event using neynar sdk
+ * Get Farcaster FIDs from wallets using neynar sdk
  * https://docs.neynar.com/reference/fetch-bulk-users-by-eth-or-sol-address
  *
  * @param wallets - array of wallets addresses
@@ -54,7 +54,7 @@ function processForFids(array: typeof usersArray): number[] {
 
   const fids = array.map((user) => user.fid);
   console.log('fids count', fids.length);
-  // fs.writeFileSync('fids.json', JSON.stringify(fids));
+  fs.writeFileSync('fids.json', JSON.stringify(fids));
   return fids;
 }
 

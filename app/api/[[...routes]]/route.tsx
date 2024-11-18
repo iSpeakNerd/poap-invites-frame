@@ -25,10 +25,10 @@ const app = new Frog({
 
 const inviteFidsArray = [
   8004, 5516, 13877, 18091, 2480, 6217, 8998, 16877, 12949,
-]; // from get-fids.ts output
+]; // from main.ts output
 const channel = {
   name: 'TableTop',
-  inviteLink: process.env.WC_INVITE_LINK!,
+  inviteLink: process.env.WC_INVITE_LINK!, //generate invite link in warpcast
 };
 
 //entrypoint
@@ -50,7 +50,6 @@ app.frame('/', (c) => {
       </div>
     ),
     intents: [
-      // <TextInput placeholder='Enter custom fruit...' />,
       <Button
         value='invite'
         action='/invite'
@@ -61,25 +60,7 @@ app.frame('/', (c) => {
   });
 });
 
-// app.frame('/new', (c) => {
-//   return c.res({
-//     image: (
-//       <div
-//         style={{
-//           display: 'flex',
-//           width: '100%',
-//           height: '100%',
-//           backgroundColor: 'white',
-//           alignItems: 'center',
-//           justifyContent: 'center',
-//         }}
-//       >
-//         <Image src='/tabletop-wordmark-color.png' />
-//       </div>
-//     ),
-//   });
-// });
-
+//invite or not frame
 app.frame('/invite', (c) => {
   const { fid } = c.frameData || {};
   console.log('fid', fid);

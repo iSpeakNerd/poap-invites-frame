@@ -10,7 +10,7 @@ import dotenv from 'dotenv';
 
 dotenv.config({ path: '.env.local' });
 
-const { Image, VStack } = UI;
+const { Image } = UI;
 
 const app = new Frog({
   assetsPath: '/',
@@ -19,9 +19,6 @@ const app = new Frog({
   hub: neynar({ apiKey: 'NEYNAR_FROG_FM' }),
   title: 'Invite frame',
 });
-
-// Uncomment to use Edge Runtime
-// export const runtime = 'edge'
 
 const inviteFidsArray = [
   8004, 5516, 13877, 18091, 2480, 6217, 8998, 16877, 12949,
@@ -66,6 +63,7 @@ app.frame('/invite', (c) => {
   console.log('fid', fid);
   if (!fid) {
     console.error('error: no fid found');
+    //if no fid, return error
     return c.res({
       image: (
         <div
@@ -73,6 +71,7 @@ app.frame('/invite', (c) => {
             color: 'white',
             fontSize: 60,
             justifyContent: 'center',
+            backgroundColor: 'black',
             alignItems: 'center',
             display: 'flex',
           }}
@@ -83,6 +82,7 @@ app.frame('/invite', (c) => {
     });
   }
   if (inviteFidsArray.includes(fid)) {
+    //if invited, return the invite link
     return c.res({
       image: (
         <div
@@ -101,12 +101,14 @@ app.frame('/invite', (c) => {
       intents: [<Button.Link href={channel.inviteLink}>JOIN NOW</Button.Link>],
     });
   } else {
+    //how to join cast link if not invited
     return c.res({
       image: (
         <div
           style={{
             color: 'white',
             height: '100%',
+            backgroundColor: 'black',
             fontSize: 60,
             justifyContent: 'center',
             alignItems: 'center',
@@ -129,17 +131,3 @@ devtools(app, { serveStatic });
 
 export const GET = handle(app);
 export const POST = handle(app);
-
-// NOTE: That if you are using the devtools and enable Edge Runtime, you will need to copy the devtools
-// static assets to the public folder. You can do this by adding a script to your package.json:
-// ```json
-// {
-//   scripts: {
-//     "copy-static": "cp -r ./node_modules/frog/_lib/ui/.frog ./public/.frog"
-//   }
-// }
-// ```
-// Next, you'll want to set up the devtools to use the correct assets path:
-// ```ts
-// devtools(app, { assetsPath: '/.frog' })
-// ```

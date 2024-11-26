@@ -35,7 +35,6 @@ export default async function getFids(wallets: string[]): Promise<number[]> {
       fid: userDataArray[0].fid,
     });
   });
-  console.log('fc users found from Poap wallets:', usersArray.length);
 
   return processForFids(usersArray);
 }
@@ -60,7 +59,7 @@ function processForFids(array: typeof usersArray): number[] {
   // console.log('composer url', url);
 
   const fids = array.map((user) => user.fid);
-  // console.log('fids count', fids.length);
   fs.writeFileSync('fids.json', JSON.stringify(fids));
+
   return fids;
 }

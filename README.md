@@ -82,7 +82,13 @@ pnpm dev
 // https://warpcast.com/~/compose?text=Welcome%2520new%2520frens%21%2520If%2520you%2520played%2520a%2520game%2520and%2520got%2520a%2520%252Fpoap%2520from%2520me%2520at%2520%252Fdevcon%2520love%2520to%2520hear%2520from%2520you%2520in%2520%252Ftabletop%21%2520%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520Click%2520Start%2520to%2520get%2520your%2520channel%2520invite%21&embeds%5B%5D=https%3A%2F%2Fpoap-invites-frame.vercel.app%2Fapi&channelKey=tabletop
 ```
 8. Deliver Invites via Frame Cast in Farcaster Channel
-    - run [`cast.ts`]() to create the composer URL - [`@createCastUrl`]() 
+    - run [`cast.ts`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/cast.ts) to create the composer URL - [`@composerUrl`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/lib/warpcast-urls.ts#L34) 
     - click the composer URL output to console to cast the frame!
 
+---
 
+The simplest way I've found to run single typescript files in Node is with ts-node dev dependency and the following command:
+```bash
+node --loader ts-node/esm file.ts
+```
+Note: Requires `"allowImportingTsExtensions": true` and `"noEmit": true` in [tsconfig.json](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/tsconfig.json)

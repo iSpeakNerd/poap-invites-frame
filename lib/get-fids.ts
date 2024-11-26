@@ -6,7 +6,9 @@ import dotenv from 'dotenv';
 
 dotenv.config({ path: '.env.local' });
 
-//from POAP csv download
+/**
+ * Replace this with your POAP event ID
+ */
 const POAP_EVENT_ID = process.env.POAP_EVENT_ID!;
 
 const usersArray: { address: string; username: string; fid: number }[] = [];
@@ -17,7 +19,8 @@ const fids: number[] = [];
  * https://docs.neynar.com/reference/fetch-bulk-users-by-eth-or-sol-address
  *
  * @param wallets - array of wallets addresses
- * @returns array of FIDs
+ *
+ * @returns array of FIDs matching those wallets
  */
 export default async function getFids(wallets: string[]): Promise<number[]> {
   const users = await neynar.fetchBulkUsersByEthereumAddress(wallets, {
@@ -32,39 +35,32 @@ export default async function getFids(wallets: string[]): Promise<number[]> {
       fid: userDataArray[0].fid,
     });
   });
-  console.log('fc users count', usersArray.length);
+  console.log('fc users found from Poap wallets:', usersArray.length);
 
   return processForFids(usersArray);
 }
 
 function processForFids(array: typeof usersArray): number[] {
-  const mentions = array.map((user) => `@${user.username}`).join(' ');
-  console.log(mentions);
+  /**
+   * Uncomment this section to mention allowlisted users on Farcaster
+   * as part of the announcement cast
+   */
 
-  const url = warpcastUrlBuilder.composerUrl({
-    text: `Welcome new frens! If you played a game and got a /poap from me at /devcon love to hear from you in /tabletop! 
-    
-    Click Start to get your channel invite! 
-    
-    ${mentions}`,
-    embeds: ['https://poap-invites-frame.vercel.app/api'],
-    channelKey: 'tabletop',
-  });
-  console.log('composer url', url);
+  // const mentions = array.map((user) => `@${user.username}`).join(' ');
+  // console.log(mentions);
+
+  // const url = warpcastUrlBuilder.composerUrl({
+  //   text: `Welcome new frens! If you played a game and got a /poap from me at /devcon love to hear from you in /tabletop!
+
+  //   Click Start to get your channel invite!
+  //   ${mentions}`,
+  //   embeds: ['https://poap-invites-frame.vercel.app/api'],
+  //   channelKey: 'tabletop',
+  // });
+  // console.log('composer url', url);
 
   const fids = array.map((user) => user.fid);
-  console.log('fids count', fids.length);
+  // console.log('fids count', fids.length);
   fs.writeFileSync('fids.json', JSON.stringify(fids));
   return fids;
 }
-
-// async function createInvite() {
-//   // const fids = await getFids();
-//   const signer = process.env.FC_SIGNER_UUID!;
-//   const invite = await neynar.inviteChannelMember(
-//     signer,
-//     'testinprod',
-//     496573,
-//     'member'
-//   );
-// }

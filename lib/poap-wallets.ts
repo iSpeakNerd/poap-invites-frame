@@ -1,6 +1,5 @@
 import dotenv from 'dotenv';
 import { PoapResponse, PoapToken } from './poap.types.ts';
-import fs from 'fs';
 
 dotenv.config({ path: '.env.local' });
 const POAP_EVENT_ID = '180427';
@@ -59,16 +58,12 @@ async function processPoapData(data: PoapResponse): Promise<string[]> {
  *
  * @param eventId - the poap event to fetch wallets from
  *
- * @returns array of wallets
+ * @returns array of wallet addresses
  */
 export default async function getPoapWallets(
   eventId: string
 ): Promise<string[]> {
   const data = await fetchPoaps(eventId);
-  console.log('tokens count', data.total);
   const wallets = await processPoapData(data);
-  console.log('wallets count', wallets.length);
-  // console.log(wallets);
-  // fs.writeFileSync('wallets.json', JSON.stringify(wallets, null, 2));
   return wallets;
 }

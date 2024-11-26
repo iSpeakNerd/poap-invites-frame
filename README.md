@@ -65,7 +65,7 @@ pnpm dev
 - Head to http://localhost:3000/api/dev to inspect frame using frog.fm [devtools](https://frog.fm/concepts/devtools)
 - Customize and repeat until satisfied
 
-8. Customize the Announcement Cast
+8. Customize the Announcement Cast in [`cast.ts`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/cast.ts)
     - replace the `WarpcastUrlBuilder` options properties in the [`@processForFids`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/lib/get-fids.ts#L40) function
         - `options.text` - the text of the cast delivering the frame invites
         - `options.embeds` - url of the live frame server api route

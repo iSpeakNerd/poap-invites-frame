@@ -83,7 +83,7 @@ pnpm dev
 
 8. Deliver Invites via Frame Cast in Farcaster Channel
     - run [`cast.ts`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/cast.ts) to create the composer URL - [`@composerUrl`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/lib/warpcast-urls.ts#L34) 
-    - click the composer URL output to console to cast the frame!
+    - click the composer URL in the console to cast the frame!
 
 ---
 

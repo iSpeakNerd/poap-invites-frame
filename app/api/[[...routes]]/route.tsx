@@ -20,12 +20,19 @@ const app = new Frog({
   title: 'Invite frame',
 });
 
+/**
+ * Replace this array with the fids from the fids.json output of main.ts
+ */
 const inviteFidsArray = [
   8004, 5516, 13877, 18091, 2480, 6217, 8998, 16877, 12949,
-]; // from main.ts output
+];
+
+/**
+ * Replace this object with the channel details from your warpcast channel
+ */
 const channel = {
   name: 'TableTop',
-  inviteLink: process.env.WC_INVITE_LINK!, //generate invite link in warpcast
+  inviteLink: process.env.WC_INVITE_LINK!, //generate invite link inside warpcast app
 };
 
 //entrypoint

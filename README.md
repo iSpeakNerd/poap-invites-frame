@@ -47,8 +47,6 @@ yarn install
         - Use the Neynar SDK/API to map the fetched wallets to Farcaster user profiles
             - implemented in `lib/get-fids.ts` as [`@getFids`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/lib/get-fids.ts#L22)
          
-    3. Create a Warpcast Composer Url to deliver the frame to the channel on Farcaster
-
 6. Create and Deliver Invites
     - Build the invite flow using the repository's utilities and APIs:
       - Generate an Allowlist: Compile Farcaster IDs eligible for channel invites.
@@ -66,7 +64,7 @@ pnpm dev
 - Customize and repeat until satisfied
 
 8. Customize the Announcement Cast in [`cast.ts`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/cast.ts)
-    - replace the `WarpcastUrlBuilder` options properties in the [`@processForFids`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/lib/get-fids.ts#L40) function
+    - replace the options properties in the [`@WarpcastUrlBuilder.composerUrl`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/lib/warpcast-urls.ts#L34) method call
         - `options.text` - the text of the cast delivering the frame invites
         - `options.embeds` - url of the live frame server api route
         - `options.channelKey` - the name of the channel to cast the frame in

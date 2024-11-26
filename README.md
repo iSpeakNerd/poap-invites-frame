@@ -53,7 +53,7 @@ yarn install
           - implemented in `lib/get-fids.ts` as [`@processForFids`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/lib/get-fids.ts#L40)
       - Deliver Invites: Use Farcaster frames or direct messages to send invites to Farcaster users.
 7. Customize Farcaster Frame
-    - Customize the frame at [`app/api/[[...routes]]/route.tsx`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/app/api/%5B%5B...routes%5D%5D/route.tsx)
+    - Customize the frame at [`app/api/[[...routes]]/route.tsx`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/app/api/%5B%5B...routes%5D%5D/route.tsx) - uses [frog.fm](https://frog.fm/concepts/images-intents) as framework for frames
     - Run dev server
 ```bash
 npm run dev

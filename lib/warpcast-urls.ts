@@ -29,7 +29,7 @@ export default class WarpcastUrlBuilder {
    *
    * @param options.channelKey - The name of the channel to cast in
    *
-   * @returns The composer URL
+   * @returns The URL to create the cast
    */
   static composerUrl(options: WarpcastComposeOptions): string {
     const params = new URLSearchParams();

@@ -96,3 +96,6 @@ export default class WarpcastUrlBuilder {
     return `https://warpcast.com/~/conversations/${hash}`;
   }
 }
+
+export const createCastUrl = (options: WarpcastComposeOptions) =>
+  WarpcastUrlBuilder.composerUrl(options);

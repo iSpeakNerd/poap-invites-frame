@@ -39,11 +39,11 @@ yarn install
 
 4. Replace POAP event ID and run [`main.ts`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/main.ts) script, it will:
     
-    1. Fetch POAP wallets - `GET event/{id}/poaps`
+    1. Fetch POAP wallets via poap.tech API - `GET event/{id}/poaps` 
         - Use the POAP.tech API to retrieve array of wallet addresses holding a specific POAP
             - implemented in `lib/poap-wallets.ts` as [`@getPoapWallets`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/lib/poap-wallets.ts#L64)
     
-    2. Resolve Farcaster IDs using POAP wallets - `GET /v2/farcaster/user/bulk-by-address`
+    2. Resolve Farcaster IDs using POAP wallets via Neynar SDK - `GET /v2/farcaster/user/bulk-by-address`
         - Use the Neynar SDK/API to map the fetched wallets to Farcaster user profiles
             - implemented in `lib/get-fids.ts` as [`@getFids`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/lib/get-fids.ts#L22)
          

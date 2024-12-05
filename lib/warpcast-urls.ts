@@ -35,10 +35,7 @@ export default class WarpcastUrlBuilder {
     const params = new URLSearchParams();
 
     //text, with default fallback
-    params.append(
-      'text',
-      encodeURIComponent(options.text || 'this is a default cast')
-    );
+    params.append('text', options.text || 'this is a default cast');
 
     //embeds, 2 max, must be valid URLs
     if (options.embeds?.length) {

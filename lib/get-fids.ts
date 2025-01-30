@@ -59,7 +59,7 @@ function processForFids(array: typeof usersArray): number[] {
   // console.log('composer url', url);
 
   const fids = array.map((user) => user.fid);
-  fs.writeFileSync('fids.json', JSON.stringify(fids));
+  fs.writeFileSync('return-user-fids.json', JSON.stringify(fids));
 
   return fids;
 }

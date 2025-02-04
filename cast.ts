@@ -1,7 +1,7 @@
 import { createCastUrl } from './lib/warpcast-urls.ts';
 
 /**
- * Replace these with your values for frame cast
+ * Replace these with your values for your custom cast
  */
 const ANNOUNCEMENT_TEXT = `Welcome new frens! If you played a game and got a /poap from me at /devcon love to hear from you in /tabletop! 
   Click Start to get your channel invite!`;

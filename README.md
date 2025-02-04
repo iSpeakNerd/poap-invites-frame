@@ -2,7 +2,7 @@
 
 Create an invite frame to add users to a channel on Farcaster from a POAP event.
 
-This project uses [frog.fm](https://frog.fm) in Nextjs to create and host the frame server, fetches POAP data from [poap.tech](https://poap.tech), and finds Farcaster users using [Neynar SDK](https://docs.neynar.com). Created at Devcon 2024.
+This project uses [frog.fm](https://frog.fm) in Nextjs to serve the farcaster channel invite frame, fetches POAP data from [poap.tech](https://poap.tech), and finds Farcaster users using [Neynar SDK](https://docs.neynar.com). Created at Devcon 2024.
 
 Uses [cast-intent](https://github.com/iSpeakNerd/cast-intent) as `WarpcastUrlBuilder` to create frame cast in Farcaster channel.
 
@@ -31,13 +31,13 @@ Follow app logic in [`main.ts`](https://github.com/iSpeakNerd/poap-invites-frame
 
 2. Install dependencies using your preferred package manager - I use `pnpm`
 
-```bash
-npm install
-# or
-pnpm install
-# or
-yarn install
-```
+   ```bash
+   npm install
+   # or
+   pnpm install
+   # or
+   yarn install
+   ```
 
 3. Set up [poap.tech](https://poap.tech) and [Neynar](https://docs.neynar.com) API keys
 
@@ -57,41 +57,47 @@ yarn install
       - Use the Neynar SDK/API to map the fetched wallets to Farcaster user profiles
         - implemented in `lib/get-fids.ts` as [`@getFids`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/lib/get-fids.ts#L22)
 
+   3. Output the resolved Farcaster IDs to JSON: `returned-user-fids.json`
+
+   > Use the `_verbose: true` option to see the intermediate data and output each step to a separate file
+
 5. Create and Deliver Invites
    - Build the invite flow using the repository's utilities and APIs:
      - Generate an Allowlist: Compile Farcaster IDs eligible for channel invites.
        - implemented in `lib/get-fids.ts` as [`@processForFids`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/lib/get-fids.ts#L40)
      - Deliver Invites: Use Farcaster frames or direct messages to send invites to Farcaster users.
 6. Customize Farcaster Frame
+
    - Customize the frame at [`app/api/[[...routes]]/route.tsx`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/app/api/%5B%5B...routes%5D%5D/route.tsx) - uses [frog.fm](https://frog.fm/concepts/images-intents) as framework for frames
    - Run dev server
 
-```bash
-npm run dev
-# or
-pnpm dev
-```
+   ```bash
+   npm run dev
+   # or
+   pnpm dev
+   ```
 
-- Head to http://localhost:3000/api/dev to inspect frame using frog.fm [devtools](https://frog.fm/concepts/devtools)
-- Customize and repeat until satisfied
+   - Head to http://localhost:3000/api/dev to inspect frame using frog.fm [devtools](https://frog.fm/concepts/devtools)
+   - Customize and repeat until satisfied
 
-1. Customize the Announcement Cast in [`cast.ts`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/cast.ts)
+7. Customize the Announcement Cast in [`cast.ts`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/cast.ts)
+
    - replace the options properties in the [`@WarpcastUrlBuilder.composerUrl`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/lib/warpcast-urls.ts#L34) method call
      - `options.text` - the text of the cast delivering the frame invites
      - `options.embeds` - url of the live frame server api route
      - `options.channelKey` - the name of the channel to cast the frame in
 
-```ts
-// example
-const url = warpcastUrlBuilder.composerUrl({
-  text: `Welcome new frens! If you played a game and got a /poap from me at /devcon love to hear from you in /tabletop! 
-    
-    Click Start to get your channel invite!`,
-  embeds: ['https://poap-invites-frame.vercel.app/api'],
-  channelKey: 'tabletop',
-});
-// https://warpcast.com/~/compose?text=Welcome%2520new%2520frens%21%2520If%2520you%2520played%2520a%2520game%2520and%2520got%2520a%2520%252Fpoap%2520from%2520me%2520at%2520%252Fdevcon%2520love%2520to%2520hear%2520from%2520you%2520in%2520%252Ftabletop%21%2520%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520Click%2520Start%2520to%2520get%2520your%2520channel%2520invite%21&embeds%5B%5D=https%3A%2F%2Fpoap-invites-frame.vercel.app%2Fapi&channelKey=tabletop
-```
+   ```ts
+   // example
+   const url = warpcastUrlBuilder.composerUrl({
+     text: `Welcome new frens! If you played a game and got a /poap from me at /devcon love to hear from you in /tabletop! 
+      
+      Click Start to get your channel invite!`,
+     embeds: ['https://poap-invites-frame.vercel.app/api'],
+     channelKey: 'tabletop',
+   });
+   // https://warpcast.com/~/compose?text=Welcome%2520new%2520frens%21%2520If%2520you%2520played%2520a%2520game%2520and%2520got%2520a%2520%252Fpoap%2520from%2520me%2520at%2520%252Fdevcon%2520love%2520to%2520hear%2520from%2520you%2520in%2520%252Ftabletop%21%2520%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520Click%2520Start%2520to%2520get%2520your%2520channel%2520invite%21&embeds%5B%5D=https%3A%2F%2Fpoap-invites-frame.vercel.app%2Fapi&channelKey=tabletop
+   ```
 
 8. Deliver Invites via Frame Cast in Farcaster Channel
    - run [`cast.ts`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/cast.ts) to create the composer URL - [`@composerUrl`](https://github.com/iSpeakNerd/poap-invites-frame/blob/main/lib/warpcast-urls.ts#L34)

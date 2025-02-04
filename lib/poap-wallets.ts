@@ -3,14 +3,21 @@ import { PoapResponse, PoapToken } from './poap.types.ts';
 import fs from 'fs';
 
 dotenv.config({ path: '.env.local' });
-const POAP_EVENT_ID = '180427';
 const apiKey = process.env.POAP_API_KEY!;
 
 /**
  * Fetch POAPs from POAP API with pagination
  * https://documentation.poap.tech/reference/geteventpoaps-2
+ *
+ * @param _eventId - the poap event to fetch wallets from
+ * @param _verbose - whether to output to console and save poap wallets to JSON file
+ * @returns array of wallet addresses
  */
-async function fetchPoaps(_eventId: string): Promise<PoapResponse> {
+
+async function fetchPoaps(
+  _eventId: string,
+  _verbose?: boolean
+): Promise<PoapResponse> {
   console.log('fetching poap holder addresses via POAP API');
   const limit = 300; // max limit
   let offset = 0;
@@ -52,25 +59,32 @@ async function fetchPoaps(_eventId: string): Promise<PoapResponse> {
     offset: offset,
     transferCount: transferCount,
   };
+  if (_verbose) {
+    console.log('writing poap tokens to file "returned-poap-tokens.json"');
 
-  console.log('writing poap tokens to file "return-poap-tokens.json"');
-  fs.writeFileSync(
-    'return-poap-tokens.json',
-    JSON.stringify(finalData, null, 2)
-  );
+    fs.writeFileSync(
+      'returned-poap-tokens.json',
+      JSON.stringify(finalData, null, 2)
+    );
 
-  console.log(
-    'fetched poap tokens via POAP API',
-    JSON.stringify(finalData, null, 2)
-  );
-
+    console.log(
+      'fetched poap tokens via POAP API',
+      JSON.stringify(finalData, null, 2)
+    );
+  }
   return finalData;
 }
 
-async function processPoapData(data: PoapResponse): Promise<string[]> {
+async function processPoapData(
+  data: PoapResponse,
+  _verbose?: boolean
+): Promise<string[]> {
   console.log('processing poap return for addresses only');
   const wallets = data.tokens.map((token) => token.owner.id);
-  console.log('completed poap addresses', wallets);
+  console.log('completed processing poap addresses');
+  if (_verbose) {
+    console.log('completed poap addresses', wallets);
+  }
   return wallets;
 }
 
@@ -79,17 +93,21 @@ async function processPoapData(data: PoapResponse): Promise<string[]> {
  * https://documentation.poap.tech/reference/geteventpoaps-2
  *
  * @param eventId - the poap event to fetch wallets from
- *
+ * @param _verbose - whether to save poap wallets to JSON file
  * @returns array of wallet addresses
  */
 export default async function getPoapWallets(
-  eventId: string
+  eventId: string,
+  _verbose?: boolean
 ): Promise<string[]> {
-  const data = await fetchPoaps(eventId);
-  const wallets = await processPoapData(data);
-  fs.writeFileSync(
-    'return-poap-wallets.json',
-    JSON.stringify(wallets, null, 2)
-  );
+  const data = await fetchPoaps(eventId, _verbose);
+  const wallets = await processPoapData(data, _verbose);
+  if (_verbose) {
+    fs.writeFileSync(
+      'returned-poap-wallets.json',
+      JSON.stringify(wallets, null, 2)
+    );
+  }
+
   return wallets;
 }

@@ -27,4 +27,4 @@ async function getFidsFromPoap(_verbose?: boolean) {
 }
 
 // run script
-getFidsFromPoap(true);
+getFidsFromPoap(false);

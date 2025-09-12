@@ -24,10 +24,10 @@ importers:
         version: 16.4.7
       frog:
         specifier: latest
-        version: 0.18.3(@types/node@20.17.10)(hono@4.6.14)(typescript@5.7.2)
+        version: 0.18.3(@types/node@20.17.10)(hono@4.9.7)(typescript@5.7.2)
       hono:
-        specifier: ^4.6.14
-        version: 4.6.14
+        specifier: ^4.9.7
+        version: 4.9.7
       next:
         specifier: 14.2.21
         version: 14.2.21(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1319,8 +1319,8 @@ packages:
     peerDependencies:
       hono: '>=3'
 
-  hono@4.6.14:
-    resolution: {integrity: sha512-j4VkyUp2xazGJ8eCCLN1Vm/bxdvm/j5ZuU9AIjLu9vapn2M44p9L3Ktr9Vnb2RN2QtcR/wVjZVMlT5k7GJQgPw==}
+  hono@4.9.7:
+    resolution: {integrity: sha512-t4Te6ERzIaC48W3x4hJmBwgNlLhmiEdEE5ViYb02ffw4ignHNHa5IBtPjmbKstmtKa8X6C35iWwK4HaqvrzG9w==}
     engines: {node: '>=16.9.0'}
 
   http-errors@1.4.0:
@@ -1695,6 +1695,7 @@ packages:
 
   path-match@1.2.4:
     resolution: {integrity: sha512-UWlehEdqu36jmh4h5CWJ7tARp1OEVKGHKm6+dg9qMq5RKUTV5WJrGgaZ3dN2m7WFAXDbjlHzvJvL/IUpy84Ktw==}
+    deprecated: This package is archived and no longer maintained. For support, visit https://github.com/expressjs/express/discussions
 
   path-scurry@1.11.1:
     resolution: {integrity: sha512-Xa4Nw17FS9ApQFJ9umLiJS4orGjm7ZzwUrwamcGQuHSzDyth9boKDaycYdDcZDuqYATXw4HFXgaqWTctW/v1HA==}
@@ -2346,13 +2347,13 @@ snapshots:
   '@esbuild/win32-x64@0.24.2':
     optional: true
 
-  '@hono/node-server@1.13.7(hono@4.6.14)':
+  '@hono/node-server@1.13.7(hono@4.9.7)':
     dependencies:
-      hono: 4.6.14
+      hono: 4.9.7
 
-  '@hono/valibot-validator@0.3.1(hono@4.6.14)(valibot@0.31.1)':
+  '@hono/valibot-validator@0.3.1(hono@4.9.7)(valibot@0.31.1)':
     dependencies:
-      hono: 4.6.14
+      hono: 4.9.7
       valibot: 0.31.1
 
   '@jridgewell/resolve-uri@3.1.2': {}
@@ -3317,11 +3318,11 @@ snapshots:
       combined-stream: 1.0.8
       mime-types: 2.1.35
 
-  frog@0.18.3(@types/node@20.17.10)(hono@4.6.14)(typescript@5.7.2):
+  frog@0.18.3(@types/node@20.17.10)(hono@4.9.7)(typescript@5.7.2):
     dependencies:
       '@bufbuild/protobuf': 1.10.0
-      '@hono/node-server': 1.13.7(hono@4.6.14)
-      '@hono/valibot-validator': 0.3.1(hono@4.6.14)(valibot@0.31.1)
+      '@hono/node-server': 1.13.7(hono@4.9.7)
+      '@hono/valibot-validator': 0.3.1(hono@4.9.7)(valibot@0.31.1)
       '@noble/curves': 1.7.0
       '@noble/hashes': 1.6.1
       cac: 6.7.14
@@ -3330,8 +3331,8 @@ snapshots:
       dom-parser: 1.1.5
       fast-glob: 3.3.2
       fs-extra: 11.2.0
-      hono: 4.6.14
-      hono-og: 0.0.29(hono@4.6.14)
+      hono: 4.9.7
+      hono-og: 0.0.29(hono@4.9.7)
       jose: 5.9.6
       lz-string: 1.5.0
       path-browserify: 1.0.1
@@ -3448,13 +3449,13 @@ snapshots:
 
   hex-rgb@4.3.0: {}
 
-  hono-og@0.0.29(hono@4.6.14):
+  hono-og@0.0.29(hono@4.9.7):
     dependencies:
       '@vercel/og': 0.6.4
-      hono: 4.6.14
+      hono: 4.9.7
       workers-og: 0.0.25
 
-  hono@4.6.14: {}
+  hono@4.9.7: {}
 
   http-errors@1.4.0:
     dependencies:

@@ -18,16 +18,16 @@ importers:
     dependencies:
       '@neynar/nodejs-sdk':
         specifier: ^1.71.0
-        version: 1.71.0(typescript@5.7.2)
+        version: 1.71.0(typescript@5.9.3)
       dotenv:
-        specifier: ^16.4.7
-        version: 16.4.7
+        specifier: ^16.6.1
+        version: 16.6.1
       frog:
         specifier: latest
-        version: 0.18.3(@types/node@20.17.10)(hono@4.6.14)(typescript@5.7.2)
+        version: 0.18.3(@types/node@20.19.26)(hono@4.10.8)(typescript@5.9.3)
       hono:
-        specifier: ^4.6.14
-        version: 4.6.14
+        specifier: ^4.10.8
+        version: 4.10.8
       next:
         specifier: 15.4.10
         version: 15.4.10(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -39,8 +39,8 @@ importers:
         version: 19.2.3(react@19.2.3)
     devDependencies:
       '@types/node':
-        specifier: ^20.17.10
-        version: 20.17.10
+        specifier: ^20.19.26
+        version: 20.19.26
       '@types/react':
         specifier: ^19.2.7
         version: 19.2.7
@@ -48,17 +48,17 @@ importers:
         specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.7)
       '@types/validator':
-        specifier: ^13.12.2
-        version: 13.12.2
+        specifier: ^13.15.10
+        version: 13.15.10
       ts-node:
         specifier: ^10.9.2
-        version: 10.9.2(@types/node@20.17.10)(typescript@5.7.2)
+        version: 10.9.2(@types/node@20.19.26)(typescript@5.9.3)
       typescript:
-        specifier: ^5.7.2
-        version: 5.7.2
+        specifier: ^5.9.3
+        version: 5.9.3
       validator:
-        specifier: ^13.12.0
-        version: 13.12.0
+        specifier: ^13.15.23
+        version: 13.15.23
       vercel:
         specifier: ^32.7.2
         version: 32.7.2
@@ -707,8 +707,8 @@ packages:
   '@types/node@14.18.33':
     resolution: {integrity: sha512-qelS/Ra6sacc4loe/3MSjXNL1dNQ/GjxNHVzuChwMfmk7HuycRLVQN2qNY3XahK+fZc5E2szqQSKUyAF0E+2bg==}
 
-  '@types/node@20.17.10':
-    resolution: {integrity: sha512-/jrvh5h6NXhEauFFexRin69nA0uHJ5gwk4iDivp/DeoEua3uwCUto6PC86IpRITBOs4+6i2I56K5x5b6WYGXHA==}
+  '@types/node@20.19.26':
+    resolution: {integrity: sha512-0l6cjgF0XnihUpndDhk+nyD3exio3iKaYROSgvh/qSevPXax3L8p5DBRFjbvalnwatGgHEQn2R88y2fA3g4irg==}
 
   '@types/react-dom@19.2.3':
     resolution: {integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==}
@@ -718,8 +718,8 @@ packages:
   '@types/react@19.2.7':
     resolution: {integrity: sha512-MWtvHrGZLFttgeEj28VXHxpmwYbor/ATPYbBfSFZEIRK0ecCFLl2Qo55z52Hss+UV9CRN7trSeq1zbgx7YDWWg==}
 
-  '@types/validator@13.12.2':
-    resolution: {integrity: sha512-6SlHBzUW8Jhf3liqrGGXyTJSIFe4nqlJ5A5KaMZ2l/vbM3Wh3KSybots/wfWVzNLK4D1NZluDlSQIbIEPx6oyA==}
+  '@types/validator@13.15.10':
+    resolution: {integrity: sha512-T8L6i7wCuyoK8A/ZeLYt1+q0ty3Zb9+qbSSvrIVitzT3YjZqkTZ40IbRsPanlB4h1QB3JVL1SYCdR6ngtFYcuA==}
 
   '@vercel/build-utils@7.3.0':
     resolution: {integrity: sha512-RJwqrGYSk75auHZqWmlSL+a5JsWv+4SF1AxNQJ+KpF3XWZ/8yThkN/jHBfNxMmW6VvNczSVtMaXI0/2Sess6Eg==}
@@ -1101,8 +1101,8 @@ packages:
   dom-parser@1.1.5:
     resolution: {integrity: sha512-lCiFG48ZUzGXjKN0qhSkxD/i3ndyV6I37zQ3W2VFYLjF1ob8A+QgSsM7Ps2UT0d3LpJxLMmMHiJJ34z5hkKLiA==}
 
-  dotenv@16.4.7:
-    resolution: {integrity: sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==}
+  dotenv@16.6.1:
+    resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
     engines: {node: '>=12'}
 
   easy-table@1.1.0:
@@ -1450,8 +1450,8 @@ packages:
     peerDependencies:
       hono: '>=3'
 
-  hono@4.6.14:
-    resolution: {integrity: sha512-j4VkyUp2xazGJ8eCCLN1Vm/bxdvm/j5ZuU9AIjLu9vapn2M44p9L3Ktr9Vnb2RN2QtcR/wVjZVMlT5k7GJQgPw==}
+  hono@4.10.8:
+    resolution: {integrity: sha512-DDT0A0r6wzhe8zCGoYOmMeuGu3dyTAE40HHjwUsWFTEy5WxK1x2WDSsBPlEXgPbRIFY6miDualuUDbasPogIww==}
     engines: {node: '>=16.9.0'}
 
   http-errors@1.4.0:
@@ -2175,8 +2175,8 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
 
-  typescript@5.7.2:
-    resolution: {integrity: sha512-i5t66RHxDvVN40HfDd1PsEThGNnlMCMT3jMUuoh9/0TaqWevNontacunWyN02LA9/fIbEWlcHZcgTKb9QoaLfg==}
+  typescript@5.9.3:
+    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -2187,8 +2187,8 @@ packages:
     resolution: {integrity: sha512-u3xV3X7uzvi5b1MncmZo3i2Aw222Zk1keqLA1YkHldREkAhAqi65wuPfe7lHx8H/Wzy+8CE7S7uS3jekIM5s8g==}
     engines: {node: '>=8'}
 
-  undici-types@6.19.8:
-    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
+  undici-types@6.21.0:
+    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
 
   undici@7.3.0:
     resolution: {integrity: sha512-Qy96NND4Dou5jKoSJ2gm8ax8AJM/Ey9o9mz7KN1bb9GP+G0l20Zw8afxTnY2f4b7hmhn/z8aC2kfArVQlAhFBw==}
@@ -2226,8 +2226,8 @@ packages:
   valibot@0.31.1:
     resolution: {integrity: sha512-2YYIhPrnVSz/gfT2/iXVTrSj92HwchCt9Cga/6hX4B26iCz9zkIsGTS0HjDYTZfTi1Un0X6aRvhBi1cfqs/i0Q==}
 
-  validator@13.12.0:
-    resolution: {integrity: sha512-c1Q0mCiPlgdTVVVIJIrBuxNicYE+t/7oKeI9MWLj3fh/uq2Pxh/3eeWbVZ4OcGW1TUf53At0njHw5SMdA3tmMg==}
+  validator@13.15.23:
+    resolution: {integrity: sha512-4yoz1kEWqUjzi5zsPbAS/903QXSYp0UOtHsPpp7p9rHAw/W+dkInskAE386Fat3oKRROwO98d9ZB0G4cObgUyw==}
     engines: {node: '>= 0.10'}
 
   vercel@32.7.2:
@@ -2483,13 +2483,13 @@ snapshots:
   '@esbuild/win32-x64@0.24.2':
     optional: true
 
-  '@hono/node-server@1.13.7(hono@4.6.14)':
+  '@hono/node-server@1.13.7(hono@4.10.8)':
     dependencies:
-      hono: 4.6.14
+      hono: 4.10.8
 
-  '@hono/valibot-validator@0.3.1(hono@4.6.14)(valibot@0.31.1)':
+  '@hono/valibot-validator@0.3.1(hono@4.10.8)(valibot@0.31.1)':
     dependencies:
-      hono: 4.6.14
+      hono: 4.10.8
       valibot: 0.31.1
 
   '@img/colour@1.0.0':
@@ -2669,12 +2669,12 @@ snapshots:
   '@next/swc-win32-x64-msvc@15.4.8':
     optional: true
 
-  '@neynar/nodejs-sdk@1.71.0(typescript@5.7.2)':
+  '@neynar/nodejs-sdk@1.71.0(typescript@5.9.3)':
     dependencies:
       '@openapitools/openapi-generator-cli': 2.15.3
       axios: 1.7.9
       semver: 7.6.3
-      viem: 2.21.55(typescript@5.7.2)
+      viem: 2.21.55(typescript@5.9.3)
     transitivePeerDependencies:
       - '@nestjs/microservices'
       - '@nestjs/platform-express'
@@ -2862,9 +2862,9 @@ snapshots:
 
   '@types/node@14.18.33': {}
 
-  '@types/node@20.17.10':
+  '@types/node@20.19.26':
     dependencies:
-      undici-types: 6.19.8
+      undici-types: 6.21.0
 
   '@types/react-dom@19.2.3(@types/react@19.2.7)':
     dependencies:
@@ -2874,7 +2874,7 @@ snapshots:
     dependencies:
       csstype: 3.2.3
 
-  '@types/validator@13.12.2': {}
+  '@types/validator@13.15.10': {}
 
   '@vercel/build-utils@7.3.0': {}
 
@@ -3026,9 +3026,9 @@ snapshots:
 
   abbrev@1.1.1: {}
 
-  abitype@1.0.7(typescript@5.7.2):
+  abitype@1.0.7(typescript@5.9.3):
     optionalDependencies:
-      typescript: 5.7.2
+      typescript: 5.9.3
 
   acorn-walk@8.3.4:
     dependencies:
@@ -3310,7 +3310,7 @@ snapshots:
 
   dom-parser@1.1.5: {}
 
-  dotenv@16.4.7: {}
+  dotenv@16.6.1: {}
 
   easy-table@1.1.0:
     optionalDependencies:
@@ -3543,11 +3543,11 @@ snapshots:
       combined-stream: 1.0.8
       mime-types: 2.1.35
 
-  frog@0.18.3(@types/node@20.17.10)(hono@4.6.14)(typescript@5.7.2):
+  frog@0.18.3(@types/node@20.19.26)(hono@4.10.8)(typescript@5.9.3):
     dependencies:
       '@bufbuild/protobuf': 1.10.0
-      '@hono/node-server': 1.13.7(hono@4.6.14)
-      '@hono/valibot-validator': 0.3.1(hono@4.6.14)(valibot@0.31.1)
+      '@hono/node-server': 1.13.7(hono@4.10.8)
+      '@hono/valibot-validator': 0.3.1(hono@4.10.8)(valibot@0.31.1)
       '@noble/curves': 1.7.0
       '@noble/hashes': 1.6.1
       cac: 6.7.14
@@ -3556,16 +3556,16 @@ snapshots:
       dom-parser: 1.1.5
       fast-glob: 3.3.2
       fs-extra: 11.2.0
-      hono: 4.6.14
-      hono-og: 0.0.29(hono@4.6.14)
+      hono: 4.10.8
+      hono-og: 0.0.29(hono@4.10.8)
       jose: 5.9.6
       lz-string: 1.5.0
       path-browserify: 1.0.1
       valibot: 0.31.1
-      viem: 2.21.55(typescript@5.7.2)
-      vite: 6.0.11(@types/node@20.17.10)
+      viem: 2.21.55(typescript@5.9.3)
+      vite: 6.0.11(@types/node@20.19.26)
     optionalDependencies:
-      typescript: 5.7.2
+      typescript: 5.9.3
     transitivePeerDependencies:
       - '@types/node'
       - bufferutil
@@ -3674,13 +3674,13 @@ snapshots:
 
   hex-rgb@4.3.0: {}
 
-  hono-og@0.0.29(hono@4.6.14):
+  hono-og@0.0.29(hono@4.10.8):
     dependencies:
       '@vercel/og': 0.6.4
-      hono: 4.6.14
+      hono: 4.10.8
       workers-og: 0.0.25
 
-  hono@4.6.14: {}
+  hono@4.10.8: {}
 
   http-errors@1.4.0:
     dependencies:
@@ -3980,17 +3980,17 @@ snapshots:
 
   os-tmpdir@1.0.2: {}
 
-  ox@0.1.2(typescript@5.7.2):
+  ox@0.1.2(typescript@5.9.3):
     dependencies:
       '@adraffy/ens-normalize': 1.11.0
       '@noble/curves': 1.7.0
       '@noble/hashes': 1.6.1
       '@scure/bip32': 1.6.0
       '@scure/bip39': 1.5.0
-      abitype: 1.0.7(typescript@5.7.2)
+      abitype: 1.0.7(typescript@5.9.3)
       eventemitter3: 5.0.1
     optionalDependencies:
-      typescript: 5.7.2
+      typescript: 5.9.3
     transitivePeerDependencies:
       - zod
 
@@ -4392,21 +4392,21 @@ snapshots:
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
 
-  ts-node@10.9.2(@types/node@20.17.10)(typescript@5.7.2):
+  ts-node@10.9.2(@types/node@20.19.26)(typescript@5.9.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 20.17.10
+      '@types/node': 20.19.26
       acorn: 8.14.0
       acorn-walk: 8.3.4
       arg: 4.1.3
       create-require: 1.1.1
       diff: 4.0.2
       make-error: 1.3.6
-      typescript: 5.7.2
+      typescript: 5.9.3
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
 
@@ -4422,7 +4422,7 @@ snapshots:
 
   typescript@4.9.5: {}
 
-  typescript@5.7.2: {}
+  typescript@5.9.3: {}
 
   uid-promise@1.0.0: {}
 
@@ -4430,7 +4430,7 @@ snapshots:
     dependencies:
       '@lukeed/csprng': 1.1.0
 
-  undici-types@6.19.8: {}
+  undici-types@6.21.0: {}
 
   undici@7.3.0: {}
 
@@ -4457,7 +4457,7 @@ snapshots:
 
   valibot@0.31.1: {}
 
-  validator@13.12.0: {}
+  validator@13.15.23: {}
 
   vercel@32.7.2:
     dependencies:
@@ -4479,31 +4479,31 @@ snapshots:
       - encoding
       - supports-color
 
-  viem@2.21.55(typescript@5.7.2):
+  viem@2.21.55(typescript@5.9.3):
     dependencies:
       '@noble/curves': 1.7.0
       '@noble/hashes': 1.6.1
       '@scure/bip32': 1.6.0
       '@scure/bip39': 1.5.0
-      abitype: 1.0.7(typescript@5.7.2)
+      abitype: 1.0.7(typescript@5.9.3)
       isows: 1.0.6(ws@8.18.0)
-      ox: 0.1.2(typescript@5.7.2)
+      ox: 0.1.2(typescript@5.9.3)
       webauthn-p256: 0.0.10
       ws: 8.18.0
     optionalDependencies:
-      typescript: 5.7.2
+      typescript: 5.9.3
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
       - zod
 
-  vite@6.0.11(@types/node@20.17.10):
+  vite@6.0.11(@types/node@20.19.26):
     dependencies:
       esbuild: 0.24.2
       postcss: 8.4.49
       rollup: 4.28.1
     optionalDependencies:
-      '@types/node': 20.17.10
+      '@types/node': 20.19.26
       fsevents: 2.3.3
 
   wcwidth@1.0.1:

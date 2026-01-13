@@ -14,7 +14,7 @@
     "@neynar/nodejs-sdk": "^3.108.0",
     "dotenv": "^16.6.1",
     "frog": "latest",
-    "hono": "^4.10.8",
+    "hono": "^4.11.4",
     "next": "15.4.10",
     "react": "^19.2.3",
     "react-dom": "^19.2.3"

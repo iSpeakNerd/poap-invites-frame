@@ -24,10 +24,10 @@ importers:
         version: 16.6.1
       frog:
         specifier: latest
-        version: 0.18.3(@types/node@20.19.26)(hono@4.10.8)(typescript@5.9.3)
+        version: 0.18.3(@types/node@20.19.26)(hono@4.11.10)(typescript@5.9.3)
       hono:
-        specifier: ^4.10.8
-        version: 4.10.8
+        specifier: ^4.11.10
+        version: 4.11.10
       next:
         specifier: 15.4.10
         version: 15.4.10(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -1464,11 +1464,12 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
-    deprecated: Glob versions prior to v9 are no longer supported
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   glob@9.3.5:
     resolution: {integrity: sha512-e1LleDykUz2Iu+MTYdkSsuWX8lvAjAcs0Xef0lNIu0S2wOAzuTxCJtcd9S3cijlwYF18EsU3rzb8jPVobxDh9Q==}
     engines: {node: '>=16 || 14 >=14.17'}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   gopd@1.2.0:
     resolution: {integrity: sha512-ZUKRh6/kUFoAiTAtTYPZJ3hw9wNxx+BIBOijnlG9PnrJsCcSjs1wyyD6vJpaYtgnzDrKYRSqf3OO6Rfa93xsRg==}
@@ -1505,8 +1506,8 @@ packages:
     peerDependencies:
       hono: '>=3'
 
-  hono@4.10.8:
-    resolution: {integrity: sha512-DDT0A0r6wzhe8zCGoYOmMeuGu3dyTAE40HHjwUsWFTEy5WxK1x2WDSsBPlEXgPbRIFY6miDualuUDbasPogIww==}
+  hono@4.11.10:
+    resolution: {integrity: sha512-kyWP5PAiMooEvGrA9jcD3IXF7ATu8+o7B3KCbPXid5se52NPqnOpM/r9qeW2heMnOekF4kqR1fXJqCYeCLKrZg==}
     engines: {node: '>=16.9.0'}
 
   http-errors@1.4.0:
@@ -1881,6 +1882,7 @@ packages:
 
   path-match@1.2.4:
     resolution: {integrity: sha512-UWlehEdqu36jmh4h5CWJ7tARp1OEVKGHKm6+dg9qMq5RKUTV5WJrGgaZ3dN2m7WFAXDbjlHzvJvL/IUpy84Ktw==}
+    deprecated: This package is archived and no longer maintained. For support, visit https://github.com/expressjs/express/discussions
 
   path-scurry@1.11.1:
     resolution: {integrity: sha512-Xa4Nw17FS9ApQFJ9umLiJS4orGjm7ZzwUrwamcGQuHSzDyth9boKDaycYdDcZDuqYATXw4HFXgaqWTctW/v1HA==}
@@ -2152,6 +2154,7 @@ packages:
   tar@6.2.1:
     resolution: {integrity: sha512-DZ4yORTwrbTj/7MZYq2w+/ZFdI6OZ/f9SFHR+71gIVUZhOQPHzVCLpvRnPgyaMpfWxxk/4ONva3GQSyNIKRv6A==}
     engines: {node: '>=10'}
+    deprecated: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   through@2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
@@ -2542,13 +2545,13 @@ snapshots:
   '@esbuild/win32-x64@0.24.2':
     optional: true
 
-  '@hono/node-server@1.13.7(hono@4.10.8)':
+  '@hono/node-server@1.13.7(hono@4.11.10)':
     dependencies:
-      hono: 4.10.8
+      hono: 4.11.10
 
-  '@hono/valibot-validator@0.3.1(hono@4.10.8)(valibot@0.31.1)':
+  '@hono/valibot-validator@0.3.1(hono@4.11.10)(valibot@0.31.1)':
     dependencies:
-      hono: 4.10.8
+      hono: 4.11.10
       valibot: 0.31.1
 
   '@img/colour@1.0.0':
@@ -3636,11 +3639,11 @@ snapshots:
       hasown: 2.0.2
       mime-types: 2.1.35
 
-  frog@0.18.3(@types/node@20.19.26)(hono@4.10.8)(typescript@5.9.3):
+  frog@0.18.3(@types/node@20.19.26)(hono@4.11.10)(typescript@5.9.3):
     dependencies:
       '@bufbuild/protobuf': 1.10.0
-      '@hono/node-server': 1.13.7(hono@4.10.8)
-      '@hono/valibot-validator': 0.3.1(hono@4.10.8)(valibot@0.31.1)
+      '@hono/node-server': 1.13.7(hono@4.11.10)
+      '@hono/valibot-validator': 0.3.1(hono@4.11.10)(valibot@0.31.1)
       '@noble/curves': 1.7.0
       '@noble/hashes': 1.6.1
       cac: 6.7.14
@@ -3649,8 +3652,8 @@ snapshots:
       dom-parser: 1.1.5
       fast-glob: 3.3.2
       fs-extra: 11.2.0
-      hono: 4.10.8
-      hono-og: 0.0.29(hono@4.10.8)
+      hono: 4.11.10
+      hono-og: 0.0.29(hono@4.11.10)
       jose: 5.9.6
       lz-string: 1.5.0
       path-browserify: 1.0.1
@@ -3799,13 +3802,13 @@ snapshots:
 
   hex-rgb@4.3.0: {}
 
-  hono-og@0.0.29(hono@4.10.8):
+  hono-og@0.0.29(hono@4.11.10):
     dependencies:
       '@vercel/og': 0.6.4
-      hono: 4.10.8
+      hono: 4.11.10
       workers-og: 0.0.25
 
-  hono@4.10.8: {}
+  hono@4.11.10: {}
 
   http-errors@1.4.0:
     dependencies:

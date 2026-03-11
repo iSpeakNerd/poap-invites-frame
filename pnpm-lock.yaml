@@ -24,10 +24,10 @@ importers:
         version: 16.6.1
       frog:
         specifier: latest
-        version: 0.18.3(@types/node@20.19.26)(hono@4.11.10)(typescript@5.9.3)
+        version: 0.18.3(@types/node@20.19.26)(hono@4.12.7)(typescript@5.9.3)
       hono:
-        specifier: ^4.11.10
-        version: 4.11.10
+        specifier: ^4.12.7
+        version: 4.12.7
       next:
         specifier: 15.4.10
         version: 15.4.10(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -889,6 +889,7 @@ packages:
   basic-ftp@5.0.5:
     resolution: {integrity: sha512-4Bcg1P8xhUuqcii/S0Z9wiHIrQVPMermM1any+MX5GeGD7faD3/msQUDGLol9wOcz4/jbg/WJnGqoJF6LiBdtg==}
     engines: {node: '>=10.0.0'}
+    deprecated: Security vulnerability fixed in 5.2.0, please upgrade
 
   binary-extensions@2.3.0:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
@@ -1506,8 +1507,8 @@ packages:
     peerDependencies:
       hono: '>=3'
 
-  hono@4.11.10:
-    resolution: {integrity: sha512-kyWP5PAiMooEvGrA9jcD3IXF7ATu8+o7B3KCbPXid5se52NPqnOpM/r9qeW2heMnOekF4kqR1fXJqCYeCLKrZg==}
+  hono@4.12.7:
+    resolution: {integrity: sha512-jq9l1DM0zVIvsm3lv9Nw9nlJnMNPOcAtsbsgiUhWcFzPE99Gvo6yRTlszSLLYacMeQ6quHD6hMfId8crVHvexw==}
     engines: {node: '>=16.9.0'}
 
   http-errors@1.4.0:
@@ -2545,13 +2546,13 @@ snapshots:
   '@esbuild/win32-x64@0.24.2':
     optional: true
 
-  '@hono/node-server@1.13.7(hono@4.11.10)':
+  '@hono/node-server@1.13.7(hono@4.12.7)':
     dependencies:
-      hono: 4.11.10
+      hono: 4.12.7
 
-  '@hono/valibot-validator@0.3.1(hono@4.11.10)(valibot@0.31.1)':
+  '@hono/valibot-validator@0.3.1(hono@4.12.7)(valibot@0.31.1)':
     dependencies:
-      hono: 4.11.10
+      hono: 4.12.7
       valibot: 0.31.1
 
   '@img/colour@1.0.0':
@@ -3639,11 +3640,11 @@ snapshots:
       hasown: 2.0.2
       mime-types: 2.1.35
 
-  frog@0.18.3(@types/node@20.19.26)(hono@4.11.10)(typescript@5.9.3):
+  frog@0.18.3(@types/node@20.19.26)(hono@4.12.7)(typescript@5.9.3):
     dependencies:
       '@bufbuild/protobuf': 1.10.0
-      '@hono/node-server': 1.13.7(hono@4.11.10)
-      '@hono/valibot-validator': 0.3.1(hono@4.11.10)(valibot@0.31.1)
+      '@hono/node-server': 1.13.7(hono@4.12.7)
+      '@hono/valibot-validator': 0.3.1(hono@4.12.7)(valibot@0.31.1)
       '@noble/curves': 1.7.0
       '@noble/hashes': 1.6.1
       cac: 6.7.14
@@ -3652,8 +3653,8 @@ snapshots:
       dom-parser: 1.1.5
       fast-glob: 3.3.2
       fs-extra: 11.2.0
-      hono: 4.11.10
-      hono-og: 0.0.29(hono@4.11.10)
+      hono: 4.12.7
+      hono-og: 0.0.29(hono@4.12.7)
       jose: 5.9.6
       lz-string: 1.5.0
       path-browserify: 1.0.1
@@ -3802,13 +3803,13 @@ snapshots:
 
   hex-rgb@4.3.0: {}
 
-  hono-og@0.0.29(hono@4.11.10):
+  hono-og@0.0.29(hono@4.12.7):
     dependencies:
       '@vercel/og': 0.6.4
-      hono: 4.11.10
+      hono: 4.12.7
       workers-og: 0.0.25
 
-  hono@4.11.10: {}
+  hono@4.12.7: {}
 
   http-errors@1.4.0:
     dependencies:
